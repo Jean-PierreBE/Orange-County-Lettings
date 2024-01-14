@@ -8,7 +8,6 @@ environ.Env.read_env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -17,9 +16,12 @@ SECRET_KEY = env("SECRET_KEY")
 ENV_SENTRY = env("ENV_SENTRY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if ENV_SENTRY == "DEBUG":
+if ENV_SENTRY == 'TEST':
     DEBUG = True
-if not DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    DEBUG = False
+    ALLOWED_HOSTS = ['*']
     sentry_sdk.init(
         dsn=env("SENTRY_KEY"),
         # Set traces_sample_rate to 1.0 to capture 100%
@@ -31,7 +33,7 @@ if not DEBUG:
         profiles_sample_rate=1.0,
     )
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
