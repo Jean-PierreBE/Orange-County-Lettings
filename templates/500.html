@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Page error 500</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href='static/css/style_400.css' />
 </head>
 <body>
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>Oops!</h1>
+				<h2>500 - Error Server, please contact your administrator</h2>
+			</div>
+			<a href="{% url 'home'%}">Go TO Homepage</a>
+		</div>
+	</div>
 
 </body>
 </html>
