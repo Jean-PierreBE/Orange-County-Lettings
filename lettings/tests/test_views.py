@@ -3,7 +3,7 @@ from pytest_django.asserts import assertTemplateUsed
 import pytest
 
 from lettings.views import index, letting
-from lettings.models import Letting
+from lettings.models import Letting, Address
 
 
 @pytest.mark.django_db
@@ -19,12 +19,21 @@ def test_index_view(client):
     assert response.status_code == 200
     assertTemplateUsed(response, 'lettings/index.html')
 
-
 @pytest.mark.django_db
 def test_letting_view(client):
-    path = reverse('letting', args=[1])
-    print(path)
-    response = client.get(reverse(path))
+    address_test = Address(number = 1,
+                    street = 'Rue du Saphir',
+                    city = 'Bruxelles',
+                    state = 'Belgique',
+                    zip_code = 1030,
+                    country_iso_code = 'BE')
+    address_test.save()
+    letting_test = Letting(title = 'chez moi',
+                    address = address_test)
+    letting_test.save()
+
+    path = reverse('letting', args=[letting_test.id])
+    response = client.get(path)
 
     """ 
     In the first assert, We are testing if our get request returns 200 (OK) status code 
