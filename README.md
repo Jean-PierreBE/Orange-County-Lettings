@@ -1,77 +1,89 @@
-## Résumé
+# Projet 13 OpenClassRoom : Développez une architecture back-end sécurisée avec Python et SQL
+Le but de ce projet est de mettre en place une solution de CRM pour une entreprise organisatrice d'évènements
+pour les entreprises. 
+Le projet comprend deux parties 
+- la partie CRM sous forme d'une API REST écrite avec Django Rest Framework
+- la partie ligne de commandes avec Click qui permet d'interagir avec l'API en lignes de commandes
 
-Site web d'Orange County Lettings
+## composition
+Tous les fichiers .py necessaires au fonctionnement du logiciel se trouvent dans le répertoire EpicsEvent.
+il y a deux sous-répertoires
+- src qui contient le code de l'API.
+- demo_api qui contient le code click pour faire une démonstration de l'API en ligne de commandes
 
-## Développement local
+Les autres fichiers sont :
+- README.md qui contient des informations sur le logiciel
+- requirements.txt contient les packages necessaires au bon fonctionnement du logiciel
+- tox.ini permet de paramétrer flake8 pour voir si le programme répond aux normes pep8
 
-### Prérequis
+## Installation de l'application
+- Cloner le dépôt de code à l'aide de la commande `https://github.com/Jean-PierreBE/EpicsEvent.git`
+- Rendez-vous depuis un terminal à la racine du répertoire SoftDesk avec la commande `cd EpicsEvent`
+- Créer un environnement virtuel pour le projet avec `$ python -m venv env` sous windows ou `$ python3 -m venv env` sous macos ou linux.
+- Activez l'environnement virtuel avec `$ env\Scripts\activate` sous windows ou `$ source env/bin/activate` sous macos ou linux.
+- installer les packages python du fichier requirements.txt en lançant la commande suivante 
+  - `pip install -r requirements.txt`
 
-- Compte GitHub avec accès en lecture à ce repository
-- Git CLI
-- SQLite3 CLI
-- Interpréteur Python, version 3.6 ou supérieure
+## Lancement du programme
+Il faut au préalable avoir installé et configuré une base de données PostgreSQL.
 
-Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
+Renommer .env.example en .env et remplir les variables.
+- Pour créer les tables on tape sur la ligne de commande dans le répertoire src:
+  - `python manage.py makemigrations`
+  - `python manage.py migrate`
+- On lance le programme en tapant sur la ligne de commande dans le répertoire src:
+  - `python manage.py runserver`
 
-### macOS / Linux
+## Déroulement du programme
+Dans le répertoire racine lancer le ou les commandes suivantes
+- python -m demo_api users
+- python -m demo_api customers
+- python -m demo_api contracts
+- python -m demo_api events
 
-#### Cloner le repository
+ces commandes donnent l'aide pour chacune des parties de l'API
+Pour chacune de ces parties il est possible de créer , mettre à jour , supprimer , visualiser un ou plusieurs
+objets.
+Pour la partie user , on a le login et le refresh du token en plus.
+ex : on tape `python -m demo_api users create` , le programme invite l'utilisateur à saisir
+- son pseudo
+- un mot de passe
 
-- `cd /path/to/put/project/in`
-- `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git`
+si l'utilisateur est référencé , un token est généré et l'utilisateur peut saisir les données une par une.
+Une fois toutes les données encodées , on fait appel à l'API qui renverra un code retour et un fichier au format 
+json le cas échéant. 
+Les erreurs d'encodage et fonctionnelles sont affichées également
 
-#### Créer l'environnement virtuel
+## Tests
+- pour voir si le programme passe les tests unitaires et d'intégration exécuter la commande suivante dans le répertoire src:
+  - `pytest --html=test_report.html --self-contained-html`
+  - visualiser le fichier test_report.html
+- pour voir la couverture des tests lancer la commande suivante :
+  - `pytest --cov=. --cov-report html`
+  - visualiser le fichier index.html dans le répertoire htmlcov
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `python -m venv venv`
-- `apt-get install python3-venv` (Si l'étape précédente comporte des erreurs avec un paquet non trouvé sur Ubuntu)
-- Activer l'environnement `source venv/bin/activate`
-- Confirmer que la commande `python` exécute l'interpréteur Python dans l'environnement virtuel
-`which python`
-- Confirmer que la version de l'interpréteur Python est la version 3.6 ou supérieure `python --version`
-- Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
-- Pour désactiver l'environnement, `deactivate`
+## Contrôle qualité
+Pour vérifier la qualité du code , on peut lancer le commandes suivantes :
+- `flake8 --format=html --htmldir=flake-report src`
+- `flake8 --format=html --htmldir=flake-report-click demo_api`
+Les rapports sortiront en format html dans les répertoires 
+- flake-report
+- flake-report-click
 
-#### Exécuter le site
+pour cela il faut installer :
+- flake8 : contrôle du code pour vérifier la compatibilité avec les normes pep8
+- flake8-html : permet de sortir le rapport flake8 sous format html
+- flake8-functions : permet d'ajouter des contrôles au niveau des fonctions (ex : longueur maximale des fonctions)
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `pip install --requirement requirements.txt`
-- `python manage.py runserver`
-- Aller sur `http://localhost:8000` dans un navigateur.
-- Confirmer que le site fonctionne et qu'il est possible de naviguer (vous devriez voir plusieurs profils et locations).
+le fichier tox.ini contient la configuration pour flake8.
+- `exclude = migrations` : la longueur maximale de chaque ligne ne peut pas dépasser 119 caractères
+- `max-line-length = 120` : la longueur maximale de chaque ligne ne peut pas dépasser 119 caractères
+- `max-function-length = 50` : la longueur maximale de chaque fonction ne peut pas dépasser 50 lignes
+- `ignore = CFQ002, CFQ004, W503, W504` : évite les erreurs
+  - CFQ002 : nombre d'arguments en entrée trop élevés (> 6)
+  - CFQ004 : nombre d'éléments en retour trop élevés (> 3)
+  - W503 : saut de ligne avant un opérateur
+  - W504 : saut de ligne après un opérateur
 
-#### Linting
+Ces paramètres peuvent être modifiés
 
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `flake8`
-
-#### Tests unitaires
-
-- `cd /path/to/Python-OC-Lettings-FR`
-- `source venv/bin/activate`
-- `pytest`
-
-#### Base de données
-
-- `cd /path/to/Python-OC-Lettings-FR`
-- Ouvrir une session shell `sqlite3`
-- Se connecter à la base de données `.open oc-lettings-site.sqlite3`
-- Afficher les tables dans la base de données `.tables`
-- Afficher les colonnes dans le tableau des profils, `pragma table_info(Python-OC-Lettings-FR_profile);`
-- Lancer une requête sur la table des profils, `select user_id, favorite_city from
-  Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
-- `.quit` pour quitter
-
-#### Panel d'administration
-
-- Aller sur `http://localhost:8000/admin`
-- Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
-
-### Windows
-
-Utilisation de PowerShell, comme ci-dessus sauf :
-
-- Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
-- Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`

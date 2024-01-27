@@ -33,8 +33,6 @@ else:
         profiles_sample_rate=1.0,
     )
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
