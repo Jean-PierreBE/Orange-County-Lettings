@@ -5,3 +5,6 @@ omit =
     */migrations/*
     */__init__.py
     */tests/*
+    */apps.py
+    */asgi.py
+    */wsgi.py
