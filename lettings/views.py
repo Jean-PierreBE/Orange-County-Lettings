@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from lettings.models import Letting
 
 def index(request):
@@ -8,7 +8,7 @@ def index(request):
 
 
 def letting(request, letting_id):
-    letting = Letting.objects.get(id=letting_id)
+    letting = get_object_or_404(Letting, pk=letting_id)
     context = {
         'title': letting.title,
         'address': letting.address,

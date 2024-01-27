@@ -1,6 +1,8 @@
 from django.urls import reverse
 from pytest_django.asserts import assertTemplateUsed
+from django.conf import settings
 import pytest
+from django.http import HttpResponse
 
 from oc_lettings_site.views import home
 
