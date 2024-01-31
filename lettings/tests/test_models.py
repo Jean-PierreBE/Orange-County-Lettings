@@ -6,6 +6,7 @@ from lettings.models import Address, Letting
 class TestAdress(TestCase):
 
     def setUp(self):
+        """create data to test the address model"""
         self.address = Address.objects.create(
             number=60,
             street='Avenue de l emeraude',
@@ -15,14 +16,14 @@ class TestAdress(TestCase):
             country_iso_code='BE')
 
     def test_str(self):
-        """ Test the __str__ method"""
+        """ Test the __str__ method of address model"""
         expected = "60 Avenue de l emeraude"
         actual = str(self.address)
 
         self.assertEqual(expected, actual)
 
     def test_number(self):
-        """ Test the __str__ method"""
+        """ Test the __str__ method of address model"""
         obj = Address.objects.create(number=10000,
                                      street='Avenue de l emeraude',
                                      city='bruxelles',
@@ -35,6 +36,7 @@ class TestAdress(TestCase):
 class TestLetting(TestCase):
 
     def setUp(self):
+        """ create data to test the letting model"""
         self.address = Address.objects.create(
             number=60,
             street='Avenue de l emeraude',
@@ -48,7 +50,7 @@ class TestLetting(TestCase):
             address=self.address)
 
     def test_str(self):
-        """ Test the __str__ method"""
+        """ Test the __str__ method of letting model"""
         expected = 'A la maison'
         actual = str(self.letting)
 
