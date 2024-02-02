@@ -7,7 +7,7 @@ Bienvenue dans  Orange County Lettings renew documentation!
 ===========================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
    
    ./model.rst
