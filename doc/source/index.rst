@@ -12,11 +12,3 @@ Bienvenue dans  Orange County Lettings renew documentation!
    
    ./model.rst
    ./manuel.rst
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
