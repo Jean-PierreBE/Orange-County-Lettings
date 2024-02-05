@@ -13,6 +13,6 @@ def index(request):
 def profile(request, username):
     text_log = 'profile username : {id}'.format(id=username)
     logging.info(text_log)
-    profile = get_object_or_404(Profile, user__username=username)
-    context = {'profile': profile}
+    profile_extr = get_object_or_404(Profile, user__username=username)
+    context = {'profile': profile_extr}
     return render(request, 'profiles/profile.html', context)
