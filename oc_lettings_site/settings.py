@@ -1,6 +1,6 @@
 import os
-import environ
 from pathlib import Path
+import environ
 import sentry_sdk
 
 env = environ.Env()

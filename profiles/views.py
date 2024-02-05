@@ -1,6 +1,6 @@
+import logging
 from django.shortcuts import render, get_object_or_404
 from profiles.models import Profile
-import logging
 
 
 def index(request):

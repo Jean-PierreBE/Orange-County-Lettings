@@ -1,11 +1,12 @@
-from django.shortcuts import render
 import logging
 from datetime import datetime
+from django.shortcuts import render
 
 
 def home(request):
-    LOG_FILENAME = datetime.now().strftime('log/logfile_%d_%m_%Y.log')
-    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename=LOG_FILENAME, filemode='w')
+    log_filename = datetime.now().strftime('log/logfile_%d_%m_%Y.log')
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO,
+                        filename=log_filename, filemode='w')
     logging.info('home page url')
     return render(request, 'home.html')
 
