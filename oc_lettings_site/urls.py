@@ -1,3 +1,4 @@
+""" urls for the all project """
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.static import serve
@@ -5,8 +6,8 @@ from django.conf import settings
 
 from .views import home
 
-handler404 = 'oc_lettings_site.views.error_404_view'
-handler500 = 'oc_lettings_site.views.error_500_view'
+handler404 = 'oc_lettings_site.views.error_404_view'    # pylint: disable=C0103
+handler500 = 'oc_lettings_site.views.error_500_view'    # pylint: disable=C0103
 
 
 urlpatterns = [
