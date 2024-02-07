@@ -1,5 +1,16 @@
-Liste des packages necessaires pour l'application
-=================================================
+Caractéristiques techniques
+===========================
+
+Langages et framework utilisés
+------------------------------
+* python 3.10
+* django framework
+* html 
+* css
+* javascript
+
+Liste des packages python utilisés
+----------------------------------
 
 +-------------------------------+--------------+
 | Packages                      | Version      |

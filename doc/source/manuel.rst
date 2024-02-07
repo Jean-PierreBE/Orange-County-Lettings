@@ -19,3 +19,4 @@ Manuel d'utilisation
 .. figure:: ./_static/detail_profile.JPG
 
    Voici le détail d'un profile
+   

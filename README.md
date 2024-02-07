@@ -2,7 +2,7 @@
 Le but de ce projet est d'améliorer un projet existant
 - de créer une architecture modulaire
 - de réduire la dette technique
-- mettre en place ube série de tests
+- mettre en place une série de tests
 - documenter le code
 - automatiser l'intégration et le déploiement
 - mettre à disposition une documentation technique
@@ -28,10 +28,10 @@ Les autres fichiers sont :
 
 ## Lancement du programme
 Renommer .env.example en .env et remplir les variables.
-- Pour créer les tables on tape sur la ligne de commande dans le répertoire src:
+- Pour créer les tables on tape sur la ligne de commande dans le répertoire Orange-County-Lettings:
   - `python manage.py makemigrations`
   - `python manage.py migrate`
-- On lance le programme en tapant sur la ligne de commande dans le répertoire src:
+- On lance le programme en tapant sur la ligne de commande dans le répertoire Orange-County-Lettings:
   - `python manage.py runserver`
 
 ## Déroulement du programme
