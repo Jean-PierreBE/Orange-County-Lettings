@@ -48,7 +48,11 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="description.html">Description du projet</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation en local du projet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation en local du projet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lancement">Lancement</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="listreq.html">Caractéristiques techniques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">Modèle de donnees Orange County Lettings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manuel.html">Manuel d’utilisation</a></li>
@@ -81,6 +85,31 @@
              
   <section id="installation-en-local-du-projet">
 <h1>Installation en local du projet<a class="headerlink" href="#installation-en-local-du-projet" title="Link to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Cloner le dépôt de code à l’aide de la commande <a class="reference external" href="https://github.com/Jean-PierreBE/Orange-County-Lettings.git">https://github.com/Jean-PierreBE/Orange-County-Lettings.git</a></p></li>
+<li><p>Rendez-vous depuis un terminal à la racine du répertoire Orange-County-Lettings avec la commande cd Orange-County-Lettings</p></li>
+<li><p>Créer un environnement virtuel pour le projet avec $ python -m venv env sous windows ou $ python3 -m venv env sous macos ou linux.</p></li>
+<li><p>Activez l’environnement virtuel avec $ envScriptsactivate sous windows ou $ source env/bin/activate sous macos ou linux.</p></li>
+<li><p>installer les packages python du fichier requirements.txt en lançant la commande suivante pip install -r requirements.txt</p></li>
+</ul>
+</section>
+<section id="lancement">
+<h2>Lancement<a class="headerlink" href="#lancement" title="Link to this heading"></a></h2>
+<ul>
+<li><p>Renommer .env.example en .env et remplir les variables.</p></li>
+<li><p>Pour créer les tables on tape sur la ligne de commande dans le répertoire Orange-County-Lettings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>python manage.py makemigrations</p></li>
+<li><p>python manage.py migrate</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>On lance le programme en tapant sur la ligne de commande dans le répertoire Orange-County-Lettings: python manage.py runserver</p></li>
+</ul>
+</section>
 </section>
 
 
