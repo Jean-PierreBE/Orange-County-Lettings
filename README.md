@@ -8,7 +8,7 @@ Le but de ce projet est d'améliorer un projet existant
 - mettre à disposition une documentation technique
 Le readme explique essentiellement l'installation en local
 Pour avoir une documentation plus complète , notamment sur le déploiement sur un serveur veuillez consulter
- `https://orange-county-lettings-documentation.readthedocs.io/fr/latest/`
+ `http://orange-county-lettings-documentation.rtfd.io/`
 ## composition
 Tous les fichiers .py necessaires au fonctionnement de l'application se trouvent dans le répertoire Orange-County-Lettings.
 
