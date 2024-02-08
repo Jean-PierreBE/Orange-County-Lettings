@@ -33,4 +33,4 @@ jobs:
         flake8
     - name: Run Pylint
       run: |
-        pylint
+        pylint */*.py
