@@ -28,3 +28,9 @@ jobs:
     - name: Run Tests
       run: |
         pytest
+    - name: execute flake8
+      run: |
+        flake8
+    - name: Run Pylint
+      run: |
+        pylint
