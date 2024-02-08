@@ -1,4 +1,4 @@
-""" settings for the project jps04"""
+""" settings for the project jps05"""
 import os
 from pathlib import Path
 import environ
