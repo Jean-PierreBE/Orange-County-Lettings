@@ -1,13 +1,15 @@
+""" tests models for lettings """
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from lettings.models import Address, Letting
 
 
 class TestAdress(TestCase):
+    """ test model address """
 
     def setUp(self):
         """create data to test the address model"""
-        self.address = Address.objects.create(
+        self.address = Address.objects.create(   # pylint: disable=E1101
             number=60,
             street='Avenue de l emeraude',
             city='bruxelles',
@@ -24,7 +26,7 @@ class TestAdress(TestCase):
 
     def test_number(self):
         """ Test the __str__ method of address model"""
-        obj = Address.objects.create(number=10000,
+        obj = Address.objects.create(number=10000,          # pylint: disable=E1101
                                      street='Avenue de l emeraude',
                                      city='bruxelles',
                                      state='Bruxelles capitale',
@@ -34,10 +36,10 @@ class TestAdress(TestCase):
 
 
 class TestLetting(TestCase):
-
+    """ test model letting  """
     def setUp(self):
         """ create data to test the letting model"""
-        self.address = Address.objects.create(
+        self.address = Address.objects.create(  # pylint: disable=E1101
             number=60,
             street='Avenue de l emeraude',
             city='bruxelles',
@@ -45,7 +47,7 @@ class TestLetting(TestCase):
             zip_code='1030',
             country_iso_code='BE')
 
-        self.letting = Letting.objects.create(
+        self.letting = Letting.objects.create(  # pylint: disable=E1101
             title='A la maison',
             address=self.address)
 

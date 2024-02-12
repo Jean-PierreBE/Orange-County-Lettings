@@ -45,14 +45,14 @@ def test_letting_view(client):
 @pytest.mark.django_db
 def test_letting_view_error_404(client):
 
-    path = reverse('letting', args=[654])
-    response = client.get(path)
+    path = reverse('letting', args=[654])       # pylint: disable=R0801
+    response = client.get(path)                             # pylint: disable=R0801
     """
     In the first assert, We are testing if our get request returns 200 (OK) status code
     For the second assert, we are making sure that our view returns the home.html template
     """
-    if settings.DEBUG:
-        assert response.status_code == 404
-    else:
-        assert response.status_code == 200
-        assertTemplateUsed(response, 'error/404.html')
+    if settings.DEBUG:                                      # pylint: disable=R0801
+        assert response.status_code == 404                  # pylint: disable=R0801
+    else:                                                   # pylint: disable=R0801
+        assert response.status_code == 200                  # pylint: disable=R0801
+        assertTemplateUsed(response, 'error/404.html')      # pylint: disable=R0801
