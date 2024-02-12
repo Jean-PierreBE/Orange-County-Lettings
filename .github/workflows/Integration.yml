@@ -25,6 +25,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: 'Create env file'
+      run: |
+        touch .env
+        echo SECRET_KEY="django-insecure-qi38c=fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s" >> .env
+        cat .env
     - name: Run Tests
       run: |
         pytest
