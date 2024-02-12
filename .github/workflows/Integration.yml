@@ -34,9 +34,9 @@ jobs:
     - name: Run Tests
       run: |
         pytest
-    - name: execute flake8
+    - name: Analysing the code with flake8
       run: |
         flake8
-    - name: Run Pylint
+    - name: Analysing the code with pylint
       run: |
-        pylint */*.py
+        pylint $(git ls-files '*.py')
