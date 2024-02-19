@@ -1,16 +1,18 @@
+""" test models profiles """
 from django.test import TestCase
-from profiles.models import Profile
 from django.contrib.auth.models import User
+from profiles.models import Profile
 
 
 class TestProfile(TestCase):
+    """ test model profile """
 
     def setUp(self):
         self.user = User.objects.create(username='jps01',
                                         email='jps01@mail.be',
                                         password="toto")
 
-        self.profile = Profile.objects.create(favorite_city='chez moi',
+        self.profile = Profile.objects.create(favorite_city='chez moi',     # pylint: disable=E1101
                                               user=self.user)
 
     def test_str(self):

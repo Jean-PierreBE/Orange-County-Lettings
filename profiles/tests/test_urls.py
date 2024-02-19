@@ -1,3 +1,4 @@
+""" test urls profiles """
 from django.urls import reverse, resolve
 from profiles.views import index, profile
 
@@ -10,7 +11,7 @@ def test_url_profile_index():
 
     url = reverse('profiles_index')
     assert resolve(url).view_name == 'profiles_index'
-    assert resolve(url).func == index
+    assert resolve(url).func == index       # pylint: disable=W0143
 
 
 def test_url_profile():
@@ -21,4 +22,4 @@ def test_url_profile():
 
     url = reverse('profile', args=[1])
     assert resolve(url).view_name == 'profile'
-    assert resolve(url).func == profile
+    assert resolve(url).func == profile     # pylint: disable=W0143

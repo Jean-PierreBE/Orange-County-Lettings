@@ -1,6 +1,7 @@
+""" tests views lettings """
 from django.urls import reverse
-from pytest_django.asserts import assertTemplateUsed
-from django.conf import settings
+from pytest_django.asserts import assertTemplateUsed  # pylint: disable=E0611
+from django.conf import settings                      # pylint: disable=C0412
 import pytest
 
 from lettings.models import Letting, Address
@@ -8,18 +9,16 @@ from lettings.models import Letting, Address
 
 @pytest.mark.django_db
 def test_index_view(client):
-
+    """ test all lettings view """
     response = client.get(reverse('lettings_index'))
-    """
-    In the first assert, We are testing if our get request returns 200 (OK) status code
-    For the second assert, we are making sure that our view returns the home.html template
-    """
+
     assert response.status_code == 200
     assertTemplateUsed(response, 'lettings/index.html')
 
 
 @pytest.mark.django_db
 def test_letting_view(client):
+    """ test one letting """
     address_test = Address(number=1,
                            street='Rue du Saphir',
                            city='Bruxelles',
@@ -32,25 +31,19 @@ def test_letting_view(client):
                            address=address_test)
     letting_test.save()
 
-    path = reverse('letting', args=[letting_test.id])
+    path = reverse('letting', args=[letting_test.id])   # pylint: disable=E1101
     response = client.get(path)
-    """
-    In the first assert, We are testing if our get request returns 200 (OK) status code
-    For the second assert, we are making sure that our view returns the home.html template
-    """
+
     assert response.status_code == 200
     assertTemplateUsed(response, 'lettings/letting.html')
 
 
 @pytest.mark.django_db
 def test_letting_view_error_404(client):
-
+    """ test one letting """
     path = reverse('letting', args=[654])       # pylint: disable=R0801
     response = client.get(path)                             # pylint: disable=R0801
-    """
-    In the first assert, We are testing if our get request returns 200 (OK) status code
-    For the second assert, we are making sure that our view returns the home.html template
-    """
+
     if settings.DEBUG:                                      # pylint: disable=R0801
         assert response.status_code == 404                  # pylint: disable=R0801
     else:                                                   # pylint: disable=R0801

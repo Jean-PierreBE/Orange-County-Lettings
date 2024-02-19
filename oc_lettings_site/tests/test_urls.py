@@ -11,4 +11,4 @@ def test_url_home():
 
     url = reverse('home')
     assert resolve(url).view_name == 'home'
-    assert resolve(url).func == home
+    assert resolve(url).func == home        # pylint: disable=W0143
