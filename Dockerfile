@@ -5,6 +5,7 @@ ENV PYTHONBUFFERD 1
 ENV PYTHONDONTWRTEBYTECODE 1 
 
 RUN mkdir /app 
+RUN mkdir /app/log
 
 WORKDIR /app 
 
