@@ -1,5 +1,6 @@
 #!/bin/bash 
 
+#comment
 set -e 
 
 source /env/bin/activate 
