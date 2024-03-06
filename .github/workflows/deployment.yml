@@ -1,8 +1,20 @@
-Deployment:
-docker:
-- image: cimg/base:stable
-steps:
-- checkout
-- run:
-name: "Deploy"
-command: curl -X GET https://api.render.com/deploy/srv-cnjn9cect0pc73b44ur0?key=RbtD0oztlTg
+# .github/workflows/ci.yml
+
+on:
+  pull_request:
+  push:
+    branches: [prod]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy
+        # Only run this step if the branch is main
+        if: github.ref == 'refs/heads/prod'
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$deploy_url"
