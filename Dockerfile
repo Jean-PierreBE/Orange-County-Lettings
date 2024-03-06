@@ -14,7 +14,7 @@ RUN python -m  venv /env
 
 ENV PATH="/env/bin/:$PATH"
 
-COPY entrypoint.sh /app/entrypoint.sh
+COPY start.sh /app/start.sh
 
 RUN python -m pip install --upgrade pip 
 
