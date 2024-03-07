@@ -80,6 +80,30 @@
              
   <section id="deploiement-sur-un-serveur-distant">
 <h1>Déploiement sur un serveur distant<a class="headerlink" href="#deploiement-sur-un-serveur-distant" title="Link to this heading"></a></h1>
+<p>L’hébergeur choisi pour le déploiement est RENDER.
+Les sources :</p>
+<ul class="simple">
+<li><p>packages python</p></li>
+<li><p>template html</p></li>
+<li><p>fichier css</p></li>
+<li><p>dockerfile</p></li>
+<li><p>fichiers de configuration divers</p></li>
+</ul>
+<p>se trouve dans le repository Github suivant :
+<a class="reference external" href="https://github.com/Jean-PierreBE/Orange-County-Lettings">https://github.com/Jean-PierreBE/Orange-County-Lettings</a></p>
+<p>Lorsque l’on fait un push ou pull request sur le master
+les contrôles suivants sont lancés</p>
+<ul class="simple">
+<li><p>tests unitaires avec pytest</p></li>
+<li><p>flake8</p></li>
+<li><p>pylint</p></li>
+</ul>
+<p>si l’exécution s’est déroulée sans erreur , le code est pushé
+dans le cas contraire , une erreur est signalée</p>
+<p>Pour le déploiement , c’est un pull request à partir du master sur la branche prod
+qui déclenche le déploiement.</p>
+<p>une fois déployé , on peut visualiser le site sur :
+<a class="reference external" href="https://orange-county-lettings-z6q4.onrender.com">https://orange-county-lettings-z6q4.onrender.com</a></p>
 </section>
 
 
