@@ -9,8 +9,11 @@ Les sources :
 * dockerfile 
 * fichiers de configuration divers
 
-se trouve dans le repository Github suivant :
+se trouvent dans le repository Github suivant :
 https://github.com/Jean-PierreBE/Orange-County-Lettings
+
+Continuous integration
+----------------------
 
 Lorsque l'on fait un push ou pull request sur le master 
 les contrôles suivants sont lancés
@@ -21,6 +24,9 @@ les contrôles suivants sont lancés
 
 si l'exécution s'est déroulée sans erreur , le code est pushé 
 dans le cas contraire , une erreur est signalée
+
+Continuous deployment
+----------------------
 
 Pour le déploiement , c'est un pull request à partir du master sur la branche prod
 qui déclenche le déploiement.

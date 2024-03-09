@@ -1,19 +1,24 @@
-# Dockerfile
+FROM python:3 
 
-# The first instruction is what image we want to base our container on
-# We Use an official Python runtime as a parent image
-FROM python:3.10
+ENV PYTHONBUFFERD 1 
 
-# Allows docker to cache installed dependencies between builds
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+ENV PYTHONDONTWRTEBYTECODE 1 
 
-# Mounts the application code to the image
-COPY . code
-WORKDIR /code
+RUN mkdir /app 
+RUN mkdir /app/log
 
-EXPOSE 8000
+WORKDIR /app 
 
-# runs the production server
-ENTRYPOINT ["python", "manage.py"]
-CMD ["runserver", "0.0.0.0:8000"]
+COPY . /app/
+
+RUN python -m  venv /env
+
+ENV PATH="/env/bin/:$PATH"
+
+COPY start.sh /app/start.sh
+
+RUN python -m pip install --upgrade pip 
+
+COPY requirements.txt /app/
+
+RUN pip install -r requirements.txt
