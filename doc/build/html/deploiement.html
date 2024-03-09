@@ -51,7 +51,11 @@
 <li class="toctree-l1"><a class="reference internal" href="listreq.html">Caractéristiques techniques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">Modèle de donnees Orange County Lettings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manuel.html">Manuel d’utilisation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Déploiement sur un serveur distant</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Déploiement sur un serveur distant</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-deployment">Continuous deployment</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -89,8 +93,10 @@ Les sources :</p>
 <li><p>dockerfile</p></li>
 <li><p>fichiers de configuration divers</p></li>
 </ul>
-<p>se trouve dans le repository Github suivant :
+<p>se trouvent dans le repository Github suivant :
 <a class="reference external" href="https://github.com/Jean-PierreBE/Orange-County-Lettings">https://github.com/Jean-PierreBE/Orange-County-Lettings</a></p>
+<section id="continuous-integration">
+<h2>Continuous integration<a class="headerlink" href="#continuous-integration" title="Link to this heading"></a></h2>
 <p>Lorsque l’on fait un push ou pull request sur le master
 les contrôles suivants sont lancés</p>
 <ul class="simple">
@@ -100,10 +106,14 @@ les contrôles suivants sont lancés</p>
 </ul>
 <p>si l’exécution s’est déroulée sans erreur , le code est pushé
 dans le cas contraire , une erreur est signalée</p>
+</section>
+<section id="continuous-deployment">
+<h2>Continuous deployment<a class="headerlink" href="#continuous-deployment" title="Link to this heading"></a></h2>
 <p>Pour le déploiement , c’est un pull request à partir du master sur la branche prod
 qui déclenche le déploiement.</p>
 <p>une fois déployé , on peut visualiser le site sur :
 <a class="reference external" href="https://orange-county-lettings-z6q4.onrender.com">https://orange-county-lettings-z6q4.onrender.com</a></p>
+</section>
 </section>
 
 
