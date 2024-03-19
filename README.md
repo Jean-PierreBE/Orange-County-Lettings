@@ -38,6 +38,14 @@ Renommer .env.example en .env et remplir les variables.
 le site s'affiche. Pour avoir une explication plus détaillée consulter 
 `https://orange-county-lettings-documentation.readthedocs.io/fr/latest/manuel.html`
 
+## Tests
+- pour voir si le programme passe les tests unitaires et d'intégration exécuter la commande suivante dans le répertoire src:
+  - `pytest --html=test_report.html --self-contained-html`
+  - visualiser le fichier test_report.html
+- pour voir la couverture des tests lancer la commande suivante :
+  - `pytest --cov=. --cov-report html`
+  - visualiser le fichier index.html dans le répertoire htmlcov
+
 ## Contrôle qualité
 Pour vérifier la qualité du code , on peut lancer le commandes suivantes :
 - `flake8 --format=html --htmldir=flake-report`
