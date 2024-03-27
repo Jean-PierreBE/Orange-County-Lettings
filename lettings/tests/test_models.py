@@ -53,7 +53,7 @@ class TestLetting(TestCase):
 
     def test_str(self):
         """ Test the __str__ method of letting model"""
-        expected = 'A la maison'
+        expected = 'A la maisonnette'
         actual = str(self.letting)
 
         self.assertEqual(expected, actual)
